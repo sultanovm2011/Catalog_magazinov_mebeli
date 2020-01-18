@@ -1,7 +1,7 @@
 from django.db import models
 from shop.models import Product
 
-
+#модель заказа
 class Order(models.Model):
     first_name = models.CharField(verbose_name='Имя', max_length=50)
     last_name = models.CharField(verbose_name='Фамилия', max_length=50)
