@@ -126,5 +126,14 @@ CART_SESSION_ID = 'cart'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+CELERY_BROKER_URL = 'amqp://localhost'
 # Email
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.mail.ru'
+EMAIL_HOST_USER = 'sultanovm2011@mail.ru'
+EMAIL_HOST_PASSWORD='Aa170881'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'sultanovm2011@mail.ru'

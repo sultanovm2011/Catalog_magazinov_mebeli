@@ -7,8 +7,17 @@ def OrderCreated(order_id):
     Отправка Email сообщения о создании покупке
     """
     order = Order.objects.get(id=order_id)
-    subject = 'Заказ c номером {}'.format(order.id)
-    message = 'Дорогой, {}, вы успешно сделали заказ.\
-               Номер вашего заказа {}'.format(order.first_name, order.id)
-    mail_send = send_mail(subject, message, 'admin@myshop.ru', [order.email])
-    return mail_send
+    #subject = 'Заказ c номером {}'.format(order.id)
+    #message = 'Дорогой, {}, вы успешно сделали заказ.\
+    #           Номер вашего заказа {}'.format(order.first_name, order.id)
+    #mail_send = send_mail(subject, message, settings.EMAIL_HOST_USER,
+    #[order.email],
+    #fail_silently=False)
+    send_mail('Заказ Оформлен',
+                'Войдите в админ панель, если хотите посмотреть свой заказ.\n'
+                'Номер вашего заказа ' + str(order.id) + '.\n'
+                'Спасибо за покупку.',
+                'sultanovm2011@mail.ru',
+                [order.email],
+                fail_silently=False)
+#    return mail_send
